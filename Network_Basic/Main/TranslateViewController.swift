@@ -6,6 +6,10 @@ import UIKit
 // UIControl
 // UIResponderChain > apple Doc, blog             ex. userInputTextView.resignFirstResponder()
 
+// UIResponder - 이벤트에 응답하고 처리하기 위한 인터페이스
+
+ 
+
 
 class TranslateViewController: UIViewController {
 
