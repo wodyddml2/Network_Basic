@@ -16,6 +16,10 @@
 		634270E02890E1F40040A63C /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634270DF2890E1F40040A63C /* SearchViewController.swift */; };
 		634270E52890E4CF0040A63C /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634270E32890E4CF0040A63C /* ListTableViewCell.swift */; };
 		634270E62890E4CF0040A63C /* ListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 634270E42890E4CF0040A63C /* ListTableViewCell.xib */; };
+		635EF78A28920CDB0036183C /* ViewPresentableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635EF78928920CDB0036183C /* ViewPresentableProtocol.swift */; };
+		635EF78C2892236C0036183C /* LottoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635EF78B2892236C0036183C /* LottoViewController.swift */; };
+		635EF78E289230500036183C /* TranslateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635EF78D289230500036183C /* TranslateViewController.swift */; };
+		635EF79028923A990036183C /* WebViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635EF78F28923A990036183C /* WebViewViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +34,10 @@
 		634270DF2890E1F40040A63C /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		634270E32890E4CF0040A63C /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
 		634270E42890E4CF0040A63C /* ListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListTableViewCell.xib; sourceTree = "<group>"; };
+		635EF78928920CDB0036183C /* ViewPresentableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewPresentableProtocol.swift; sourceTree = "<group>"; };
+		635EF78B2892236C0036183C /* LottoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottoViewController.swift; sourceTree = "<group>"; };
+		635EF78D289230500036183C /* TranslateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateViewController.swift; sourceTree = "<group>"; };
+		635EF78F28923A990036183C /* WebViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,18 +70,38 @@
 		634270CA2890DD770040A63C /* Network_Basic */ = {
 			isa = PBXGroup;
 			children = (
+				635EF78828920CA20036183C /* Protocol */,
 				634270CB2890DD770040A63C /* AppDelegate.swift */,
 				634270CD2890DD770040A63C /* SceneDelegate.swift */,
 				634270CF2890DD770040A63C /* ViewController.swift */,
 				634270D12890DD770040A63C /* Main.storyboard */,
+				635EF79128923DF40036183C /* Main */,
 				634270E32890E4CF0040A63C /* ListTableViewCell.swift */,
 				634270E42890E4CF0040A63C /* ListTableViewCell.xib */,
-				634270DF2890E1F40040A63C /* SearchViewController.swift */,
 				634270D42890DD770040A63C /* Assets.xcassets */,
 				634270D62890DD770040A63C /* LaunchScreen.storyboard */,
 				634270D92890DD770040A63C /* Info.plist */,
 			);
 			path = Network_Basic;
+			sourceTree = "<group>";
+		};
+		635EF78828920CA20036183C /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				635EF78928920CDB0036183C /* ViewPresentableProtocol.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		635EF79128923DF40036183C /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				635EF78F28923A990036183C /* WebViewViewController.swift */,
+				635EF78D289230500036183C /* TranslateViewController.swift */,
+				635EF78B2892236C0036183C /* LottoViewController.swift */,
+				634270DF2890E1F40040A63C /* SearchViewController.swift */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,7 +179,11 @@
 				634270D02890DD770040A63C /* ViewController.swift in Sources */,
 				634270CC2890DD770040A63C /* AppDelegate.swift in Sources */,
 				634270E02890E1F40040A63C /* SearchViewController.swift in Sources */,
+				635EF78C2892236C0036183C /* LottoViewController.swift in Sources */,
 				634270CE2890DD770040A63C /* SceneDelegate.swift in Sources */,
+				635EF78E289230500036183C /* TranslateViewController.swift in Sources */,
+				635EF78A28920CDB0036183C /* ViewPresentableProtocol.swift in Sources */,
+				635EF79028923A990036183C /* WebViewViewController.swift in Sources */,
 				634270E52890E4CF0040A63C /* ListTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

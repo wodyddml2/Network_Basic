@@ -8,12 +8,40 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    var navigationTitleString: String {
+        get {
+            return "대장님"
+        }
+        set {
+            title = newValue
+        }
+    }
+    
+    var backgroundColor: UIColor = .blue
+    
+   
+    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
 
+    func configureView() {
+        navigationTitleString = "재용님"
+        backgroundColor = .red
+//        title = navigationTitleString
+        view.backgroundColor = backgroundColor
+    }
+    
+//    func configureLabel() {
+//        <#code#>
+//    }
 
+    
+    
+
+    
 }
 

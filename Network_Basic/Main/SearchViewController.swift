@@ -10,7 +10,10 @@ import UIKit
  1. 왼팔/오른팔
  */
 
-class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class SearchViewController: UIViewController,  UITableViewDelegate, UITableViewDataSource {
+   
+    
+    
     @IBOutlet weak var searchTableView: UITableView!
     
     override func viewDidLoad() {
@@ -24,6 +27,17 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         searchTableView.register(UINib(nibName: ListTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: ListTableViewCell.identifier)
     }
     
+    
+//    func configureView() {
+//        searchTableView.backgroundColor = .clear
+//        searchTableView.separatorColor = .clear
+//        searchTableView.rowHeight = 60
+//    }
+//
+//    func configureLabel() {
+//
+//    }
+//
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 100
     }
