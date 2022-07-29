@@ -26,6 +26,7 @@ class TranslateViewController: UIViewController {
         userInputTextView.text = textViewPlaceholderText
         userInputTextView.textColor = .lightGray
         
+        userInputTextView.font = UIFont(name: "Galmuri9-Regular", size: 20)
     }
 }
 

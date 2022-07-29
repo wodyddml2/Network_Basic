@@ -27,6 +27,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func sceneDidBecomeActive(_ scene: UIScene) {
+        // forground에서 안하는 이유는 백에서 포로 가거나 처음 실행할 때만 함수가 호출되기에
+        // becomeactive는 좀 더 포괄적인 느낌 앱 실행 중에 잠깐 전화오거나 잠깐 inactive 되었다가 active가 될 때 모두 함수 호출이 가능
+        // iOS 생명주기
+        
+        // badge 제거
+        UIApplication.shared.applicationIconBadgeNumber = 0
+        
         // Called when the scene has moved from an inactive state to an active state.
         // Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
     }

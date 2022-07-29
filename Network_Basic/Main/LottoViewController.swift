@@ -21,11 +21,12 @@ class LottoViewController: UIViewController {
         super.viewDidLoad()
         lottoPickerView.delegate = self
         lottoPickerView.dataSource = self
-        
+        numberTextField.delegate = self
         numberTextField.tintColor = .clear
         
         // inputView는 보통 UITextField,UITextView에서 사용되는 프로퍼티로 일반적으로 get-only이지만 UITextField,UITextView에서 get,set 프로퍼티로 사용 가능 , 키보드를 대체하는 view를 제공하는데 사용.
         numberTextField.inputView = lottoPickerView
+        numberTextField.textContentType = .oneTimeCode // 살펴보기
     }
     
    
@@ -45,5 +46,16 @@ extension LottoViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return "\(numberList[row])회차"
+    }
+}
+
+extension LottoViewController: UITextFieldDelegate {
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        textField.isUserInteractionEnabled = false
+        return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        textField.isUserInteractionEnabled = true
     }
 }
