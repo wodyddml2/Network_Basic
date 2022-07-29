@@ -10,23 +10,40 @@ import UIKit
 
  
 
-
 class TranslateViewController: UIViewController {
 
     
     @IBOutlet weak var userInputTextView: UITextView!
     
-    let textViewPlaceholderText = "번역하고 싶은 문장을 작성해보세요."
+    let textViewPlaceholderText = "https://www.naver.com"
+    
+    @IBOutlet weak var attachmentTextview: UITextView!
+    
+    // NSTextAttachment: 텍스트 첨부 개체를 만듬 - 이미지도 포함 시킬 수 있다.
+    let imageAttachment = NSTextAttachment()
+    let atrributedString = NSMutableAttributedString(string: "")
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+//
         userInputTextView.delegate = self
         
         userInputTextView.text = textViewPlaceholderText
+        userInputTextView.dataDetectorTypes = .link
         userInputTextView.textColor = .lightGray
+        // 텍스트 편집 기능을 꺼놔야 탭이 가능
+        userInputTextView.isEditable = false
         
         userInputTextView.font = UIFont(name: "Galmuri9-Regular", size: 20)
+        
+        
+//
+        imageAttachment.image = UIImage(named: "3-9")
+        // NSAttributedString: 문자 범위에 적용되는 문자열 및 관련 속성을 관리
+        atrributedString.append(NSAttributedString(attachment: imageAttachment))
+        atrributedString.append(NSAttributedString(string: "attachment와 attributedString"))
+        // attributedText: 스타일이 지정된 텍스트
+        attachmentTextview.attributedText = atrributedString
     }
 }
 

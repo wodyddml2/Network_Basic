@@ -167,6 +167,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="attachmentTextview" destination="Y5d-7F-gtu" id="wrN-WY-N9A"/>
                         <outlet property="userInputTextView" destination="KXg-9V-hGU" id="OmT-L1-twZ"/>
                     </connections>
                 </viewController>
