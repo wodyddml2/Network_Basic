@@ -16,6 +16,8 @@
 		634270E02890E1F40040A63C /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634270DF2890E1F40040A63C /* SearchViewController.swift */; };
 		634270E52890E4CF0040A63C /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634270E32890E4CF0040A63C /* ListTableViewCell.swift */; };
 		634270E62890E4CF0040A63C /* ListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 634270E42890E4CF0040A63C /* ListTableViewCell.xib */; };
+		6350090A2897ADD5006B9694 /* Beer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 635009092897ADD5006B9694 /* Beer.storyboard */; };
+		6350090D2897ADE9006B9694 /* BeerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6350090C2897ADE9006B9694 /* BeerViewController.swift */; };
 		635EF78A28920CDB0036183C /* ViewPresentableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635EF78928920CDB0036183C /* ViewPresentableProtocol.swift */; };
 		635EF78C2892236C0036183C /* LottoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635EF78B2892236C0036183C /* LottoViewController.swift */; };
 		635EF78E289230500036183C /* TranslateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635EF78D289230500036183C /* TranslateViewController.swift */; };
@@ -47,6 +49,8 @@
 		634270DF2890E1F40040A63C /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		634270E32890E4CF0040A63C /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
 		634270E42890E4CF0040A63C /* ListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListTableViewCell.xib; sourceTree = "<group>"; };
+		635009092897ADD5006B9694 /* Beer.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Beer.storyboard; sourceTree = "<group>"; };
+		6350090C2897ADE9006B9694 /* BeerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerViewController.swift; sourceTree = "<group>"; };
 		635EF78928920CDB0036183C /* ViewPresentableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewPresentableProtocol.swift; sourceTree = "<group>"; };
 		635EF78B2892236C0036183C /* LottoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottoViewController.swift; sourceTree = "<group>"; };
 		635EF78D289230500036183C /* TranslateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateViewController.swift; sourceTree = "<group>"; };
@@ -106,12 +110,22 @@
 				635EF79128923DF40036183C /* Main */,
 				634270E32890E4CF0040A63C /* ListTableViewCell.swift */,
 				634270E42890E4CF0040A63C /* ListTableViewCell.xib */,
+				6350090B2897ADDA006B9694 /* Beer */,
 				63E5191D28925813007CF333 /* Web */,
 				634270D42890DD770040A63C /* Assets.xcassets */,
 				634270D62890DD770040A63C /* LaunchScreen.storyboard */,
 				634270D92890DD770040A63C /* Info.plist */,
 			);
 			path = Network_Basic;
+			sourceTree = "<group>";
+		};
+		6350090B2897ADDA006B9694 /* Beer */ = {
+			isa = PBXGroup;
+			children = (
+				635009092897ADD5006B9694 /* Beer.storyboard */,
+				6350090C2897ADE9006B9694 /* BeerViewController.swift */,
+			);
+			path = Beer;
 			sourceTree = "<group>";
 		};
 		635EF78828920CA20036183C /* Protocol */ = {
@@ -237,6 +251,7 @@
 				638545E8289387E2009947E5 /* Galmuri9.ttf in Resources */,
 				634270D82890DD770040A63C /* LaunchScreen.storyboard in Resources */,
 				634270E62890E4CF0040A63C /* ListTableViewCell.xib in Resources */,
+				6350090A2897ADD5006B9694 /* Beer.storyboard in Resources */,
 				63E5191A289257B1007CF333 /* Web.storyboard in Resources */,
 				634270D52890DD770040A63C /* Assets.xcassets in Resources */,
 				634270D32890DD770040A63C /* Main.storyboard in Resources */,
@@ -250,6 +265,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6350090D2897ADE9006B9694 /* BeerViewController.swift in Sources */,
 				6362837C28975FB100EA2472 /* UserDefaultsHelper.swift in Sources */,
 				634270D02890DD770040A63C /* ViewController.swift in Sources */,
 				634270CC2890DD770040A63C /* AppDelegate.swift in Sources */,
