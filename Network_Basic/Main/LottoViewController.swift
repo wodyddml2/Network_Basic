@@ -1,11 +1,5 @@
-//
-//  LottoViewController.swift
-//  Network_Basic
-//
-//  Created by J on 2022/07/28.
-//
-
 import UIKit
+
 // 1. import
 import SwiftyJSON
 import Alamofire
@@ -14,7 +8,10 @@ import Alamofire
 class LottoViewController: UIViewController {
 
     @IBOutlet weak var numberTextField: UITextField!
-//    @IBOutlet weak var lottoPickerView: UIPickerView!
+
+    @IBOutlet var lottoLabel: [UILabel]!
+    @IBOutlet weak var lottobnusLabel: UILabel!
+    
     
     var lottoPickerView = UIPickerView()
     // 코드로 뷰를 만드는 기능이 훨씬 많다!
@@ -32,6 +29,8 @@ class LottoViewController: UIViewController {
         numberTextField.inputView = lottoPickerView
         numberTextField.textContentType = .oneTimeCode // 살펴보기
         
+        requestLotto(number: numberList[0])
+        numberTextField.text = "\(numberList[0])회차"
     }
     
     func requestLotto(number: Int) {
@@ -45,11 +44,11 @@ class LottoViewController: UIViewController {
                 let json = JSON(value)
                 print("JSON: \(json)")
                 // int는 옵셔널, intValue는 옵셔널 x
-                let bnus = json["bnusNo"].intValue
-                print(bnus)
+                for i in 0...self.lottoLabel.count - 1{
+                    self.lottoLabel[i].text = String(json["drwtNo\(i + 1)"].intValue)
+                }
                 
-                let drwNoDate = json["drwNoDate"].stringValue
-                self.numberTextField.text = drwNoDate
+                self.lottobnusLabel.text = String(json["bnusNo"].intValue)
             case .failure(let error):
                 print(error)
             }
@@ -68,7 +67,7 @@ extension LottoViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         requestLotto(number: numberList[row])
-//        numberTextField.text = "\(numberList[row])회차"
+        numberTextField.text = "\(numberList[row])회차"
     }
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return "\(numberList[row])회차"
