@@ -64,6 +64,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="beerButton" destination="SoM-tf-uGf" id="Fq2-d0-KRR"/>
                         <outlet property="beerDescription" destination="4cD-05-aIO" id="jt3-ye-3Vw"/>
                         <outlet property="beerImage" destination="Eil-3V-8AP" id="MYC-M3-myH"/>
                         <outlet property="beerLabel" destination="bqM-N0-baD" id="Tfq-zd-5HS"/>

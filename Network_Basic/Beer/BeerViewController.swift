@@ -9,10 +9,18 @@ class BeerViewController: UIViewController {
     @IBOutlet weak var beerLabel: UILabel!
     @IBOutlet weak var beerImage: UIImageView!
     @IBOutlet weak var beerDescription: UITextView!
+    @IBOutlet weak var beerButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        beerLabel.text = ""
+        beerLabel.textAlignment = .center
+        beerLabel.font = UIFont(name: "MYYeongnamnu", size: 17)
+        
+        beerImage.contentMode = .scaleAspectFit
+        beerButton.setTitle("Random", for: .normal)
+        beerButton.setTitleColor(.darkGray, for: .normal)
+        beerDescription.text = ""
     }
     
     func requestRandomBeer() {

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6340ED602897EF3D00F325EE /* MYYeongnamnu.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6340ED5F2897EF3D00F325EE /* MYYeongnamnu.otf */; };
 		634270CC2890DD770040A63C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634270CB2890DD770040A63C /* AppDelegate.swift */; };
 		634270CE2890DD770040A63C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634270CD2890DD770040A63C /* SceneDelegate.swift */; };
 		634270D02890DD770040A63C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634270CF2890DD770040A63C /* ViewController.swift */; };
@@ -38,6 +39,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6340ED5F2897EF3D00F325EE /* MYYeongnamnu.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MYYeongnamnu.otf; sourceTree = "<group>"; };
 		634270C82890DD770040A63C /* Network_Basic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Network_Basic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		634270CB2890DD770040A63C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		634270CD2890DD770040A63C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 		638545E0289383F6009947E5 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				6340ED5F2897EF3D00F325EE /* MYYeongnamnu.otf */,
 				638545E1289384E3009947E5 /* SCDream1.otf */,
 				638545E3289384E3009947E5 /* SCDream2.otf */,
 				638545E2289384E3009947E5 /* SCDream3.otf */,
@@ -254,6 +257,7 @@
 				6350090A2897ADD5006B9694 /* Beer.storyboard in Resources */,
 				63E5191A289257B1007CF333 /* Web.storyboard in Resources */,
 				634270D52890DD770040A63C /* Assets.xcassets in Resources */,
+				6340ED602897EF3D00F325EE /* MYYeongnamnu.otf in Resources */,
 				634270D32890DD770040A63C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
