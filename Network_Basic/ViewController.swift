@@ -20,12 +20,18 @@ class ViewController: UIViewController {
     
     var backgroundColor: UIColor = .blue
     
-   
+    
     
    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        UserDefaultsHelper.standard.nickname = "고래"
+        
+        title = UserDefaultsHelper.standard.nickname
+        
+        UserDefaultsHelper.standard.age = 10
+        
     }
 
     func configureView() {

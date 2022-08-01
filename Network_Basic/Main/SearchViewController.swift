@@ -24,7 +24,7 @@ class SearchViewController: UIViewController,  UITableViewDelegate, UITableViewD
         
         // 테이블 뷰가 사용할 테이블 뷰 셀(XIB) 등록
         // XIB: xml Interface Builder <= 예전 Nib
-        searchTableView.register(UINib(nibName: ListTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: ListTableViewCell.identifier)
+        searchTableView.register(UINib(nibName: ListTableViewCell.reuseIdentifier, bundle: nil), forCellReuseIdentifier: ListTableViewCell.reuseIdentifier)
     }
     
     
@@ -43,7 +43,7 @@ class SearchViewController: UIViewController,  UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: ListTableViewCell.identifier, for: indexPath) as? ListTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ListTableViewCell.reuseIdentifier, for: indexPath) as? ListTableViewCell else {
             return UITableViewCell()
         }
         

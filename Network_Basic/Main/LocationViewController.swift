@@ -1,7 +1,10 @@
 
 import UIKit
 
-class LocationViewController: UIViewController {
+class LocationViewController: UIViewController{
+
+    
+    
     // Notification 1.
     let notificationCenter = UNUserNotificationCenter.current()
     
