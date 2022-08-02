@@ -16,13 +16,14 @@ import SwiftyJSON
 class TranslateViewController: UIViewController {
 
     
-    @IBOutlet weak var userInputTextView: UITextView!
     
-    let textViewPlaceholderText = "번역하고 싶은 문장을 입력하세요."
+    @IBOutlet weak var userInputTextView: UITextView!
     
     @IBOutlet weak var attachmentTextview: UITextView!
     
-    @IBOutlet weak var translateLabel: UILabel!
+    @IBOutlet weak var translateButton: UIButton!
+    
+    let textViewPlaceholderText = "번역하고 싶은 문장을 입력하세요."
     // NSTextAttachment: 텍스트 첨부 개체를 만듬 - 이미지도 포함 시킬 수 있다.
 //    let imageAttachment = NSTextAttachment()
 //    let atrributedString = NSMutableAttributedString(string: "")
@@ -33,14 +34,24 @@ class TranslateViewController: UIViewController {
         userInputTextView.delegate = self
         
         userInputTextView.text = textViewPlaceholderText
+        attachmentTextview.text = ""
 //        userInputTextView.dataDetectorTypes = .link
         userInputTextView.textColor = .lightGray
+        attachmentTextview.textColor = .lightGray
+        
+        userInputTextView.textAlignment = .center
+        attachmentTextview.textAlignment = .center
         // 텍스트 편집 기능을 꺼놔야 탭이 가능
 //        userInputTextView.isEditable = false
         
         userInputTextView.font = UIFont(name: "Galmuri9-Regular", size: 20)
+        attachmentTextview.font = UIFont(name: "Galmuri9-Regular", size: 20)
         
-        translateLabel.numberOfLines = 0
+        attachmentTextview.isEditable = false
+        
+        translateButton.setTitle("한/영", for: .normal)
+        translateButton.setTitleColor(.black, for: .normal)
+//        translateLabel.numberOfLines = 0
 //
 //        imageAttachment.image = UIImage(named: "3-9")
 //        // NSAttributedString: 문자 범위에 적용되는 문자열 및 관련 속성을 관리
@@ -66,9 +77,9 @@ class TranslateViewController: UIViewController {
                 let statusCode = response.response?.statusCode ?? 500
                 
                 if statusCode == 200 {
-                    self.translateLabel.text = json["message"]["result"]["translatedText"].stringValue
+                    self.attachmentTextview.text = json["message"]["result"]["translatedText"].stringValue
                 } else {
-                    self.translateLabel.text = json["errorMessage"].stringValue
+                    self.attachmentTextview.text = json["errorMessage"].stringValue
                 }
                 
             case .failure(let error):
@@ -94,19 +105,18 @@ extension TranslateViewController: UITextViewDelegate {
     // 텍스트 뷰 글자: placeholder가 글자랑 같으면 clear, color
     func textViewDidBeginEditing(_ textView: UITextView) {
         print("start")
-        if textView.textColor == .lightGray {
-            textView.text = nil
-            textView.textColor = .black
+        if userInputTextView.textColor == .lightGray {
+            userInputTextView.text = nil
+            userInputTextView.textColor = .black
         }
-//        userInputTextView.text = ""
-//        userInputTextView.textColor = .black
+        
     }
     // 편집이 끝났을 때 호출(커서가 없어지는 순간)
     // 텍스트 뷰 글자: 사용자가 아무 글자를 안썼을 시 placeholder가 글자 보이게
     func textViewDidEndEditing(_ textView: UITextView) {
-        if textView.text.isEmpty {
-            textView.text = textViewPlaceholderText
-            textView.textColor = .lightGray
+        if userInputTextView.text.isEmpty {
+            userInputTextView.text = textViewPlaceholderText
+            userInputTextView.textColor = .lightGray
         }
         print("end")
     }

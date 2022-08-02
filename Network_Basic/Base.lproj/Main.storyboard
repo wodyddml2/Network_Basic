@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="M9n-zg-2i8">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -141,65 +141,63 @@
         <!--Translate View Controller-->
         <scene sceneID="PhB-L1-PH5">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="S64-8E-VHk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="M9n-zg-2i8" customClass="TranslateViewController" customModule="Network_Basic" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dBo-DV-4Mi">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="KXg-9V-hGU">
-                                <rect key="frame" x="20" y="94" width="374" height="200"/>
+                                <rect key="frame" x="20.5" y="173.5" width="373" height="199"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="jLH-s5-rrC"/>
+                                    <constraint firstAttribute="width" secondItem="KXg-9V-hGU" secondAttribute="height" multiplier="187:100" id="TaD-fE-Lac"/>
                                 </constraints>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Y5d-7F-gtu">
-                                <rect key="frame" x="87" y="403" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hEq-fy-9Lw">
-                                <rect key="frame" x="327" y="44" width="67" height="31"/>
+                                <rect key="frame" x="173.5" y="432.5" width="67" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                 <connections>
                                     <action selector="translateButtonClicked:" destination="M9n-zg-2i8" eventType="touchUpInside" id="iTj-Hz-BCV"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="REY-5v-SPg">
-                                <rect key="frame" x="186.5" y="631" width="41.5" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Y5d-7F-gtu">
+                                <rect key="frame" x="20.5" y="523.5" width="373" height="198.5"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Y5d-7F-gtu" secondAttribute="height" multiplier="15:8" id="FBO-h3-RPc"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Vdu-RA-9eC"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="KXg-9V-hGU" firstAttribute="leading" secondItem="Vdu-RA-9eC" secondAttribute="leading" constant="20" id="2B3-x2-roX"/>
-                            <constraint firstItem="hEq-fy-9Lw" firstAttribute="top" secondItem="Vdu-RA-9eC" secondAttribute="top" id="Hse-4x-nZx"/>
-                            <constraint firstItem="KXg-9V-hGU" firstAttribute="top" secondItem="Vdu-RA-9eC" secondAttribute="top" constant="50" id="YwM-3b-bZC"/>
-                            <constraint firstItem="Vdu-RA-9eC" firstAttribute="trailing" secondItem="KXg-9V-hGU" secondAttribute="trailing" constant="20" id="fie-MB-ax9"/>
-                            <constraint firstItem="Vdu-RA-9eC" firstAttribute="trailing" secondItem="hEq-fy-9Lw" secondAttribute="trailing" constant="20" id="uQM-FU-dkJ"/>
+                            <constraint firstItem="Y5d-7F-gtu" firstAttribute="centerX" secondItem="dBo-DV-4Mi" secondAttribute="centerX" id="0tg-1s-2lp"/>
+                            <constraint firstItem="hEq-fy-9Lw" firstAttribute="top" secondItem="KXg-9V-hGU" secondAttribute="bottom" constant="60" id="BfM-7X-Md2"/>
+                            <constraint firstItem="Y5d-7F-gtu" firstAttribute="width" secondItem="dBo-DV-4Mi" secondAttribute="width" multiplier="0.9" id="E9d-0h-nsl"/>
+                            <constraint firstItem="Y5d-7F-gtu" firstAttribute="top" secondItem="hEq-fy-9Lw" secondAttribute="bottom" constant="60" id="Htc-Al-8Do"/>
+                            <constraint firstItem="KXg-9V-hGU" firstAttribute="width" secondItem="dBo-DV-4Mi" secondAttribute="width" multiplier="0.9" id="KvI-pX-lAF"/>
+                            <constraint firstItem="hEq-fy-9Lw" firstAttribute="centerY" secondItem="dBo-DV-4Mi" secondAttribute="centerY" id="Y3O-ir-p05"/>
+                            <constraint firstItem="hEq-fy-9Lw" firstAttribute="centerX" secondItem="dBo-DV-4Mi" secondAttribute="centerX" id="c3d-qX-dG8"/>
+                            <constraint firstItem="KXg-9V-hGU" firstAttribute="centerX" secondItem="Vdu-RA-9eC" secondAttribute="centerX" id="rXm-a9-5aV"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="attachmentTextview" destination="Y5d-7F-gtu" id="wrN-WY-N9A"/>
-                        <outlet property="translateLabel" destination="REY-5v-SPg" id="5ZX-lO-PhZ"/>
+                        <outlet property="translateButton" destination="hEq-fy-9Lw" id="djM-cA-d9U"/>
                         <outlet property="userInputTextView" destination="KXg-9V-hGU" id="OmT-L1-twZ"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="S64-8E-VHk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1559" y="70"/>
+            <point key="canvasLocation" x="1557.9710144927537" y="69.642857142857139"/>
         </scene>
         <!--Web View View Controller-->
         <scene sceneID="Yu6-ML-lj9">
