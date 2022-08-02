@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -16,29 +17,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bqM-N0-baD">
-                                <rect key="frame" x="186.5" y="84" width="41.5" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Eil-3V-8AP">
-                                <rect key="frame" x="89" y="204.5" width="236" height="236"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="Eil-3V-8AP" secondAttribute="height" id="G1f-v9-6Oe"/>
-                                </constraints>
-                            </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4cD-05-aIO">
-                                <rect key="frame" x="62" y="490.5" width="290" height="145"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="4cD-05-aIO" secondAttribute="height" multiplier="2:1" id="Wf2-nc-8Aa"/>
-                                </constraints>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SoM-tf-uGf">
                                 <rect key="frame" x="327" y="44" width="67" height="31"/>
                                 <state key="normal" title="Button"/>
@@ -47,27 +25,42 @@
                                     <action selector="beerButtonClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Xze-FS-6GX"/>
                                 </connections>
                             </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="XRO-wp-Pwb">
+                                <rect key="frame" x="20" y="83" width="374" height="779"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="yh9-GI-bpY">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="v4l-CU-Wko">
+                                        <rect key="frame" x="15.5" y="0.0" width="343" height="161"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="One-Et-LkT">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="161"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="343" height="161"/>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="XRO-wp-Pwb" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="6ed-o6-LYz"/>
                             <constraint firstItem="SoM-tf-uGf" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="EZG-hq-OPa"/>
-                            <constraint firstItem="4cD-05-aIO" firstAttribute="width" secondItem="5EZ-qb-Rvc" secondAttribute="width" multiplier="0.7" id="L2E-Xm-aNz"/>
-                            <constraint firstItem="Eil-3V-8AP" firstAttribute="top" secondItem="bqM-N0-baD" secondAttribute="bottom" constant="100" id="Nix-fI-Zch"/>
-                            <constraint firstItem="Eil-3V-8AP" firstAttribute="width" secondItem="5EZ-qb-Rvc" secondAttribute="width" multiplier="0.57" id="TfW-kK-MJe"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="SoM-tf-uGf" secondAttribute="trailing" constant="20" id="U7p-cF-nqM"/>
-                            <constraint firstItem="4cD-05-aIO" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="aH4-1O-ZH9"/>
-                            <constraint firstItem="4cD-05-aIO" firstAttribute="top" secondItem="Eil-3V-8AP" secondAttribute="bottom" constant="50" id="dUw-1O-5SY"/>
-                            <constraint firstItem="Eil-3V-8AP" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="hTe-7h-KwS"/>
-                            <constraint firstItem="bqM-N0-baD" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="nkT-1l-VnP"/>
-                            <constraint firstItem="bqM-N0-baD" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="40" id="zYe-aq-GNT"/>
+                            <constraint firstItem="XRO-wp-Pwb" firstAttribute="top" secondItem="SoM-tf-uGf" secondAttribute="bottom" constant="8" symbolic="YES" id="V6j-IR-pLH"/>
+                            <constraint firstItem="XRO-wp-Pwb" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="dWU-Vr-H4K"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="XRO-wp-Pwb" secondAttribute="trailing" constant="20" id="q3h-0s-oIR"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="beerButton" destination="SoM-tf-uGf" id="Fq2-d0-KRR"/>
-                        <outlet property="beerDescription" destination="4cD-05-aIO" id="jt3-ye-3Vw"/>
-                        <outlet property="beerImage" destination="Eil-3V-8AP" id="MYC-M3-myH"/>
-                        <outlet property="beerLabel" destination="bqM-N0-baD" id="Tfq-zd-5HS"/>
+                        <outlet property="beerCollectionView" destination="XRO-wp-Pwb" id="Qc6-oH-ydO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -76,9 +69,6 @@
         </scene>
     </scenes>
     <resources>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
