@@ -4,18 +4,9 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-/*
- swift Protocol
- - Delegate
- - Datasource
- 
- 1. 왼팔/오른팔
- */
 
 class SearchViewController: UIViewController,  UITableViewDelegate, UITableViewDataSource {
    
-    
-    
     @IBOutlet weak var searchTableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
@@ -24,30 +15,33 @@ class SearchViewController: UIViewController,  UITableViewDelegate, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // 연결고리 작업 : 테이블 뷰가 해야 할 역할 > 뷰컨에 요청
         searchTableView.delegate = self
         searchTableView.dataSource = self
         searchBar.delegate = self
+        
         // 테이블 뷰가 사용할 테이블 뷰 셀(XIB) 등록
         // XIB: xml Interface Builder <= 예전 Nib
         searchTableView.register(UINib(nibName: ListTableViewCell.reuseIdentifier, bundle: nil), forCellReuseIdentifier: ListTableViewCell.reuseIdentifier)
+        searchTableView.rowHeight = 100
         
-        requestBoxOffice(text: "20220801")
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyyMMdd"
+        
+        let dateCalculate = Calendar.current.date(byAdding: .day, value: -1, to: Date())
+        
+        let beforeDate = dateFormatter.string(from: dateCalculate ?? Date())
+        
+        requestBoxOffice(text: beforeDate)
     }
     
     
-//    func configureView() {
-//        searchTableView.backgroundColor = .clear
-//        searchTableView.separatorColor = .clear
-//        searchTableView.rowHeight = 60
-//    }
-//
-//    func configureLabel() {
-//
-//    }
-    
+
     func requestBoxOffice(text: String) {
+        
         list.removeAll()
+        
         let url = "\(EndPoint.boxOfficeURL)key=\(APIKey.BOXOFFICE)&targetDt=\(text)"
         
         AF.request(url, method: .get).validate().responseJSON { response in
@@ -56,17 +50,16 @@ class SearchViewController: UIViewController,  UITableViewDelegate, UITableViewD
                 let json = JSON(value)
                 print("JSON: \(json)")
                 
-//                self.list.removeAll()
                 
-                let movieNm = json["boxOfficeResult"]["dailyBoxOfficeList"]
-                
-                
-                for i in movieNm.arrayValue{
-                    let movie = i["movieNm"].stringValue
-                    let openDt = i["openDt"].stringValue
-                    let audiAcc =  i["audiAcc"].stringValue
+                for movie in json["boxOfficeResult"]["dailyBoxOfficeList"].arrayValue{
                     
-                    let data = BoxOfficeModel(movieTitle: movie, releaseDate: openDt, totalCount: audiAcc)
+                    let movieNm = movie["movieNm"].stringValue
+                    let openDt = movie["openDt"].stringValue
+                    let rank = movie["rank"].stringValue
+                    let rankON =  movie["rankOldAndNew"].stringValue
+                    
+                    
+                    let data = BoxOfficeModel(movieTitle: movieNm, releaseDate: openDt, movieRank: rank, movieRankON: rankON)
                     
                     self.list.append(data)
                 }
@@ -89,11 +82,23 @@ class SearchViewController: UIViewController,  UITableViewDelegate, UITableViewD
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ListTableViewCell.reuseIdentifier, for: indexPath) as? ListTableViewCell else {
             return UITableViewCell()
         }
+        cell.separatorInset.left = 0
+        
+        cell.titleLabel.text = "\(list[indexPath.row].movieTitle)"
+        cell.openDateLabel.text = "\(list[indexPath.row].releaseDate)"
+        cell.rankLabel.text = "\(list[indexPath.row].movieRank)"
+        cell.newoldRankLabel.text = "\(list[indexPath.row].movieRankON)"
         
         cell.titleLabel.font = .boldSystemFont(ofSize: 20)
-        cell.titleLabel.text = "\(list[indexPath.row].movieTitle) : \(list[indexPath.row].releaseDate)"
+        cell.openDateLabel.font = .boldSystemFont(ofSize: 17)
+        cell.rankLabel.font = .boldSystemFont(ofSize: 17)
         
-        
+        if cell.newoldRankLabel.text == "NEW" {
+            cell.newoldRankLabel.textColor = .red
+        } else {
+            cell.newoldRankLabel.textColor = .blue
+        }
+
         return cell
     }
     
@@ -104,3 +109,7 @@ extension SearchViewController: UISearchBarDelegate {
         requestBoxOffice(text: searchBar.text ?? "20220801")
     }
 }
+
+
+    
+

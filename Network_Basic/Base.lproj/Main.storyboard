@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="M9n-zg-2i8">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -156,12 +156,10 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Y5d-7F-gtu">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Y5d-7F-gtu">
                                 <rect key="frame" x="87" y="403" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="Y5d-7F-gtu" secondAttribute="height" multiplier="15:8" id="ex3-tE-cCt"/>
-                                </constraints>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -175,8 +173,9 @@
                                     <action selector="translateButtonClicked:" destination="M9n-zg-2i8" eventType="touchUpInside" id="iTj-Hz-BCV"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="REY-5v-SPg">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="REY-5v-SPg">
                                 <rect key="frame" x="186.5" y="631" width="41.5" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -186,19 +185,10 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="KXg-9V-hGU" firstAttribute="leading" secondItem="Vdu-RA-9eC" secondAttribute="leading" constant="20" id="2B3-x2-roX"/>
-                            <constraint firstItem="REY-5v-SPg" firstAttribute="centerX" secondItem="dBo-DV-4Mi" secondAttribute="centerX" id="Aud-T0-rJ2"/>
-                            <constraint firstItem="Vdu-RA-9eC" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="REY-5v-SPg" secondAttribute="trailing" constant="8" id="GVU-hc-fua"/>
                             <constraint firstItem="hEq-fy-9Lw" firstAttribute="top" secondItem="Vdu-RA-9eC" secondAttribute="top" id="Hse-4x-nZx"/>
-                            <constraint firstItem="Y5d-7F-gtu" firstAttribute="leading" secondItem="Vdu-RA-9eC" secondAttribute="leading" constant="87" id="JqU-5X-eo4"/>
-                            <constraint firstItem="REY-5v-SPg" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Vdu-RA-9eC" secondAttribute="leading" constant="8" id="Lkx-dS-ido"/>
                             <constraint firstItem="KXg-9V-hGU" firstAttribute="top" secondItem="Vdu-RA-9eC" secondAttribute="top" constant="50" id="YwM-3b-bZC"/>
-                            <constraint firstItem="Y5d-7F-gtu" firstAttribute="width" secondItem="dBo-DV-4Mi" secondAttribute="width" multiplier="0.57971" id="aqe-sc-JrU"/>
-                            <constraint firstItem="Y5d-7F-gtu" firstAttribute="top" secondItem="KXg-9V-hGU" secondAttribute="bottom" constant="109" id="dPw-gc-UWE"/>
-                            <constraint firstItem="Vdu-RA-9eC" firstAttribute="trailing" secondItem="Y5d-7F-gtu" secondAttribute="trailing" constant="87" id="dZe-w3-283"/>
                             <constraint firstItem="Vdu-RA-9eC" firstAttribute="trailing" secondItem="KXg-9V-hGU" secondAttribute="trailing" constant="20" id="fie-MB-ax9"/>
-                            <constraint firstItem="REY-5v-SPg" firstAttribute="top" secondItem="Y5d-7F-gtu" secondAttribute="bottom" constant="100" id="sJG-vZ-T9U"/>
                             <constraint firstItem="Vdu-RA-9eC" firstAttribute="trailing" secondItem="hEq-fy-9Lw" secondAttribute="trailing" constant="20" id="uQM-FU-dkJ"/>
-                            <constraint firstItem="Y5d-7F-gtu" firstAttribute="centerX" secondItem="Vdu-RA-9eC" secondAttribute="centerX" id="vgu-cL-Jta"/>
                         </constraints>
                     </view>
                     <connections>

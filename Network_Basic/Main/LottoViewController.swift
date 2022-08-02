@@ -28,7 +28,8 @@ class LottoViewController: UIViewController {
         // inputView는 보통 UITextField,UITextView에서 사용되는 프로퍼티로 일반적으로 get-only이지만 UITextField,UITextView에서 get,set 프로퍼티로 사용 가능 , 키보드를 대체하는 view를 제공하는데 사용.
         numberTextField.inputView = lottoPickerView
         numberTextField.textContentType = .oneTimeCode // 살펴보기
-        
+        print(DateFormatter().string(from: Date()))
+//        DateFormatter().calendar.w
         requestLotto(number: numberList[0])
         numberTextField.text = "\(numberList[0])회차"
     }
