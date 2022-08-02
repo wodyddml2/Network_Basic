@@ -33,6 +33,7 @@
 		638545E528938516009947E5 /* SCDream2.otf in Resources */ = {isa = PBXBuildFile; fileRef = 638545E3289384E3009947E5 /* SCDream2.otf */; };
 		638545E628938516009947E5 /* SCDream3.otf in Resources */ = {isa = PBXBuildFile; fileRef = 638545E2289384E3009947E5 /* SCDream3.otf */; };
 		638545E8289387E2009947E5 /* Galmuri9.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 638545E7289387E2009947E5 /* Galmuri9.ttf */; };
+		63C140B62898BD30007576CB /* BoxOfficeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C140B52898BD30007576CB /* BoxOfficeModel.swift */; };
 		63E5191A289257B1007CF333 /* Web.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63E51919289257B1007CF333 /* Web.storyboard */; };
 		63E5191C28925810007CF333 /* WebPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E5191B28925810007CF333 /* WebPageViewController.swift */; };
 		63E5191F2892588A007CF333 /* WebStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E5191E2892588A007CF333 /* WebStartViewController.swift */; };
@@ -65,6 +66,7 @@
 		638545E2289384E3009947E5 /* SCDream3.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SCDream3.otf; sourceTree = "<group>"; };
 		638545E3289384E3009947E5 /* SCDream2.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SCDream2.otf; sourceTree = "<group>"; };
 		638545E7289387E2009947E5 /* Galmuri9.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Galmuri9.ttf; sourceTree = "<group>"; };
+		63C140B52898BD30007576CB /* BoxOfficeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxOfficeModel.swift; sourceTree = "<group>"; };
 		63E51919289257B1007CF333 /* Web.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Web.storyboard; sourceTree = "<group>"; };
 		63E5191B28925810007CF333 /* WebPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebPageViewController.swift; sourceTree = "<group>"; };
 		63E5191E2892588A007CF333 /* WebStartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebStartViewController.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 				635EF78D289230500036183C /* TranslateViewController.swift */,
 				635EF78B2892236C0036183C /* LottoViewController.swift */,
 				634270DF2890E1F40040A63C /* SearchViewController.swift */,
+				63C140B52898BD30007576CB /* BoxOfficeModel.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -282,6 +285,7 @@
 				635EF78E289230500036183C /* TranslateViewController.swift in Sources */,
 				635EF78A28920CDB0036183C /* ViewPresentableProtocol.swift in Sources */,
 				635EF79028923A990036183C /* WebViewViewController.swift in Sources */,
+				63C140B62898BD30007576CB /* BoxOfficeModel.swift in Sources */,
 				634270E52890E4CF0040A63C /* ListTableViewCell.swift in Sources */,
 				63E5191C28925810007CF333 /* WebPageViewController.swift in Sources */,
 				636283772897529A00EA2472 /* ReusableViewProtocol.swift in Sources */,

@@ -51,5 +51,5 @@ class BeerViewController: UIViewController {
     @IBAction func beerButtonClicked(_ sender: UIButton) {
         requestRandomBeer()
     }
-    
+   
 }
