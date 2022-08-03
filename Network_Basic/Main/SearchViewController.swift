@@ -27,12 +27,16 @@ class SearchViewController: UIViewController,  UITableViewDelegate, UITableViewD
         searchTableView.rowHeight = 100
         
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyyMMdd"
+        dateFormatter.dateFormat = "yyyyMMdd" // YYYYMMdd 찾아볼 것
         
         let dateCalculate = Calendar.current.date(byAdding: .day, value: -1, to: Date())
         
         let beforeDate = dateFormatter.string(from: dateCalculate ?? Date())
         
+        // 네트워크 통신: 서버 점검 등 대한 예외처리
+        // 네트워크 느린 환경 테스트
+        // 실기기 테스트 시 Condition 조절 가능!!
+        // 시뮬도 가능 (추가 설치)
         requestBoxOffice(text: beforeDate)
     }
     

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		631C63E3289A095A0032352C /* ImageSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631C63E2289A095A0032352C /* ImageSearchViewController.swift */; };
 		6340ED602897EF3D00F325EE /* MYYeongnamnu.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6340ED5F2897EF3D00F325EE /* MYYeongnamnu.otf */; };
 		634270CC2890DD770040A63C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634270CB2890DD770040A63C /* AppDelegate.swift */; };
 		634270CE2890DD770040A63C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634270CD2890DD770040A63C /* SceneDelegate.swift */; };
@@ -23,6 +24,8 @@
 		635EF78C2892236C0036183C /* LottoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635EF78B2892236C0036183C /* LottoViewController.swift */; };
 		635EF78E289230500036183C /* TranslateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635EF78D289230500036183C /* TranslateViewController.swift */; };
 		635EF79028923A990036183C /* WebViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635EF78F28923A990036183C /* WebViewViewController.swift */; };
+		63622D03289A3D21008CFDFF /* ImageSearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63622D01289A3D21008CFDFF /* ImageSearchCollectionViewCell.swift */; };
+		63622D04289A3D21008CFDFF /* ImageSearchCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63622D02289A3D21008CFDFF /* ImageSearchCollectionViewCell.xib */; };
 		636283772897529A00EA2472 /* ReusableViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636283762897529A00EA2472 /* ReusableViewProtocol.swift */; };
 		6362837A2897579A00EA2472 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636283792897579A00EA2472 /* Constant.swift */; };
 		6362837C28975FB100EA2472 /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6362837B28975FB100EA2472 /* UserDefaultsHelper.swift */; };
@@ -43,6 +46,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		631C63E2289A095A0032352C /* ImageSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSearchViewController.swift; sourceTree = "<group>"; };
 		6340ED5F2897EF3D00F325EE /* MYYeongnamnu.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MYYeongnamnu.otf; sourceTree = "<group>"; };
 		634270C82890DD770040A63C /* Network_Basic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Network_Basic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		634270CB2890DD770040A63C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -61,6 +65,8 @@
 		635EF78B2892236C0036183C /* LottoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottoViewController.swift; sourceTree = "<group>"; };
 		635EF78D289230500036183C /* TranslateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateViewController.swift; sourceTree = "<group>"; };
 		635EF78F28923A990036183C /* WebViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewViewController.swift; sourceTree = "<group>"; };
+		63622D01289A3D21008CFDFF /* ImageSearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSearchCollectionViewCell.swift; sourceTree = "<group>"; };
+		63622D02289A3D21008CFDFF /* ImageSearchCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageSearchCollectionViewCell.xib; sourceTree = "<group>"; };
 		636283762897529A00EA2472 /* ReusableViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableViewProtocol.swift; sourceTree = "<group>"; };
 		636283792897579A00EA2472 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		6362837B28975FB100EA2472 /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
@@ -159,6 +165,9 @@
 				635EF78B2892236C0036183C /* LottoViewController.swift */,
 				634270DF2890E1F40040A63C /* SearchViewController.swift */,
 				63C140B52898BD30007576CB /* BoxOfficeModel.swift */,
+				631C63E2289A095A0032352C /* ImageSearchViewController.swift */,
+				63622D01289A3D21008CFDFF /* ImageSearchCollectionViewCell.swift */,
+				63622D02289A3D21008CFDFF /* ImageSearchCollectionViewCell.xib */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -269,6 +278,7 @@
 				634270E62890E4CF0040A63C /* ListTableViewCell.xib in Resources */,
 				6350090A2897ADD5006B9694 /* Beer.storyboard in Resources */,
 				63E5191A289257B1007CF333 /* Web.storyboard in Resources */,
+				63622D04289A3D21008CFDFF /* ImageSearchCollectionViewCell.xib in Resources */,
 				634270D52890DD770040A63C /* Assets.xcassets in Resources */,
 				6340ED602897EF3D00F325EE /* MYYeongnamnu.otf in Resources */,
 				634270D32890DD770040A63C /* Main.storyboard in Resources */,
@@ -288,6 +298,7 @@
 				634270D02890DD770040A63C /* ViewController.swift in Sources */,
 				634270CC2890DD770040A63C /* AppDelegate.swift in Sources */,
 				634270E02890E1F40040A63C /* SearchViewController.swift in Sources */,
+				631C63E3289A095A0032352C /* ImageSearchViewController.swift in Sources */,
 				638545DF28935D43009947E5 /* LocationViewController.swift in Sources */,
 				635EF78C2892236C0036183C /* LottoViewController.swift in Sources */,
 				63E5191F2892588A007CF333 /* WebStartViewController.swift in Sources */,
@@ -300,6 +311,7 @@
 				63C140B62898BD30007576CB /* BoxOfficeModel.swift in Sources */,
 				634270E52890E4CF0040A63C /* ListTableViewCell.swift in Sources */,
 				63E5191C28925810007CF333 /* WebPageViewController.swift in Sources */,
+				63622D03289A3D21008CFDFF /* ImageSearchCollectionViewCell.swift in Sources */,
 				636283772897529A00EA2472 /* ReusableViewProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
