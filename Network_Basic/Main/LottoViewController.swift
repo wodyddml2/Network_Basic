@@ -10,7 +10,7 @@ class LottoViewController: UIViewController {
     @IBOutlet weak var numberTextField: UITextField!
 
     @IBOutlet var lottoLabel: [UILabel]!
-    @IBOutlet weak var lottobnusLabel: UILabel!
+//    @IBOutlet weak var lottobnusLabel: UILabel!
     
     
     var lottoPickerView = UIPickerView()
@@ -43,7 +43,7 @@ class LottoViewController: UIViewController {
    
     
     func requestLotto(number: Int) {
-        ImageSearchAPIManager.shared.requestLotto(number: number, lottoLabel, lottobnusLabel)
+        ImageSearchAPIManager.shared.requestLotto(number: number, lottoLabel)
     }
 }
 // delegate는 기능부분 , datasource는 data를 주고받음으로써 ;;

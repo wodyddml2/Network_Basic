@@ -182,7 +182,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="lottobnusLabel" destination="RYL-pw-u0k" id="e6b-DS-7o9"/>
                         <outlet property="numberTextField" destination="7aV-Tv-LcK" id="SfN-3E-efb"/>
                         <outletCollection property="lottoLabel" destination="cbF-dF-Esy" collectionClass="NSMutableArray" id="hhh-3b-FZY"/>
                         <outletCollection property="lottoLabel" destination="02R-D1-6dj" collectionClass="NSMutableArray" id="K5z-YC-CMN"/>
@@ -190,6 +189,7 @@
                         <outletCollection property="lottoLabel" destination="dGG-fd-4cg" collectionClass="NSMutableArray" id="0kX-s5-qOO"/>
                         <outletCollection property="lottoLabel" destination="knF-7N-Vlj" collectionClass="NSMutableArray" id="dtm-CA-68i"/>
                         <outletCollection property="lottoLabel" destination="Hp0-RB-sHD" collectionClass="NSMutableArray" id="ngm-KA-TU0"/>
+                        <outletCollection property="lottoLabel" destination="RYL-pw-u0k" collectionClass="NSMutableArray" id="yOD-HD-CN6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2sk-TU-qkm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -37,28 +37,45 @@ class ImageSearchAPIManager {
         }
     }
     
-    func requestLotto(number: Int, _ lottoNo: [UILabel], _ lottoBNo: UILabel) {
-//        let lottoUserDefaults = UserDefaults.standard.
-//        if
-//        
-        let url = "\(EndPoint.lottoURL)&drwNo=\(number)"
+    func requestLotto(number: Int, _ lottoNo: [UILabel]) {
+        let lottoUserDefaults = UserDefaults.standard.stringArray(forKey: "\(number)")
         
-        AF.request(url, method: .get).validate(statusCode: 200..<400).responseData { response in
-            switch response.result {
-            case .success(let value):
-                let json = JSON(value)
-                print("JSON: \(json)")
-                
-                for i in 0...lottoNo.count - 1{
-                    lottoNo[i].text = String(json["drwtNo\(i + 1)"].intValue)
-                    UserDefaults.standard.set(String(json["drwtNo\(i + 1)"].intValue), forKey: "\(number)")
+        if (lottoUserDefaults == nil) {
+            let url = "\(EndPoint.lottoURL)&drwNo=\(number)"
+            
+            AF.request(url, method: .get).validate(statusCode: 200..<400).responseData { response in
+                switch response.result {
+                case .success(let value):
+                    let json = JSON(value)
+                    print("JSON: \(json)")
+                    
+                    var list: [String] = []
+                    
+                    for i in 0...lottoNo.count - 2{
+                        list.append(String(json["drwtNo\(i + 1)"].intValue))
+                    }
+                    
+                    list.append(String(json["bnusNo"].intValue))
+                    
+                    for i in 0...list.count - 1{
+                        lottoNo[i].text = list[i]
+                    }
+                    
+                    UserDefaults.standard.set(list, forKey: "\(number)")
+                    
+                case .failure(let error):
+                    print(error)
                 }
-                
-                lottoBNo.text = String(json["bnusNo"].intValue)
-            case .failure(let error):
-                print(error)
+            }
+        } else {
+            for i in 0...lottoNo.count - 1 {
+                lottoNo[i].text = lottoUserDefaults?[i]
             }
         }
+//        
+        
+        
+       
     }
 }
 
