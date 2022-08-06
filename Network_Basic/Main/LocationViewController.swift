@@ -4,6 +4,7 @@ import UIKit
 class LocationViewController: UIViewController{
 
     
+    @IBOutlet weak var imageView: UIImageView!
     
     // Notification 1.
     let notificationCenter = UNUserNotificationCenter.current()
@@ -15,6 +16,38 @@ class LocationViewController: UIViewController{
         requestAuthorization()
         
     }
+    @IBAction func downlaodImage(_ sender: UIButton) {
+        let url = "https://apod.nasa.gov/apod/image/2208/M13_final2_sinfirma.jpg"
+        print("1", Thread.isMainThread)
+
+        // DispatchQueue: 일을 분배하는 역할
+        // .global(): 여러 곳에 분배?
+        // async: 비동기 차례대로 말고 한번에?
+        // main: 직렬화
+        
+        DispatchQueue.global().async { // 동시에 여러 작업 가능하게 해줘!
+            print("2", Thread.isMainThread)
+            let data = try! Data(contentsOf: URL(string: url)!)
+            
+            let image = UIImage(data: data)
+            // iOS에서 UI 작업은 main thread에서 작용하게 하라
+            DispatchQueue.main.async {
+                self.imageView.image = image
+                print("3", Thread.isMainThread)
+            }
+            
+        }
+        
+        
+        
+        
+        
+    }
+    
+    
+    
+    
+    
     @IBAction func notificationButtonClicked(_ sender: UIButton) {
         self.sendNotification()
     }

@@ -3,12 +3,14 @@ import UIKit
 
 import Alamofire
 import SwiftyJSON
-
+import JGProgressHUD
 
 class SearchViewController: UIViewController,  UITableViewDelegate, UITableViewDataSource {
    
     @IBOutlet weak var searchTableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
+    
+    let hud = JGProgressHUD()
     
     // BoxOffice 배열
     var list: [BoxOfficeModel] = []
@@ -43,12 +45,13 @@ class SearchViewController: UIViewController,  UITableViewDelegate, UITableViewD
     
 
     func requestBoxOffice(text: String) {
+        hud.show(in: view)
         
         list.removeAll()
         
         let url = "\(EndPoint.boxOfficeURL)key=\(APIKey.BOXOFFICE)&targetDt=\(text)"
         
-        AF.request(url, method: .get).validate().responseJSON { response in
+        AF.request(url, method: .get).validate().responseData { response in
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
@@ -68,10 +71,12 @@ class SearchViewController: UIViewController,  UITableViewDelegate, UITableViewD
                     self.list.append(data)
                 }
                 
-                
                 self.searchTableView.reloadData()
+                self.hud.dismiss()
+
                 
             case .failure(let error):
+                self.hud.dismiss()
                 print(error)
             }
         }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qqK-T9-GK2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vPb-OG-VzX">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -78,17 +78,28 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="u0W-hG-zws">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="b9O-rt-iHe"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="CVv-wa-yHz"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="u0W-hG-zws" firstAttribute="leading" secondItem="CVv-wa-yHz" secondAttribute="leading" id="7rr-rV-70b"/>
                             <constraint firstItem="IBD-cU-NwT" firstAttribute="trailing" secondItem="CVv-wa-yHz" secondAttribute="trailing" id="8Mq-9C-O6p"/>
+                            <constraint firstItem="u0W-hG-zws" firstAttribute="trailing" secondItem="CVv-wa-yHz" secondAttribute="trailing" id="BdL-xr-x37"/>
                             <constraint firstItem="IBD-cU-NwT" firstAttribute="top" secondItem="CVv-wa-yHz" secondAttribute="top" constant="60" id="UGr-c4-PFe"/>
                             <constraint firstItem="IBD-cU-NwT" firstAttribute="bottom" secondItem="CVv-wa-yHz" secondAttribute="bottom" id="WpO-Ul-41F"/>
                             <constraint firstItem="IBD-cU-NwT" firstAttribute="leading" secondItem="CVv-wa-yHz" secondAttribute="leading" id="kdw-Mh-UJo"/>
+                            <constraint firstItem="u0W-hG-zws" firstAttribute="top" secondItem="CVv-wa-yHz" secondAttribute="top" id="vN5-al-ZlR"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="searchBar" destination="u0W-hG-zws" id="XSm-xe-vuf"/>
                         <outlet property="searchCollectionView" destination="IBD-cU-NwT" id="G0m-6f-jXc"/>
                     </connections>
                 </viewController>
@@ -321,6 +332,31 @@
                                     <action selector="notificationButtonClicked:" destination="LiE-fR-7AX" eventType="touchUpInside" id="bPa-ux-yF5"/>
                                 </connections>
                             </button>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LUa-cs-pqX">
+                                <rect key="frame" x="51" y="196" width="49" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </switch>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="lL4-oG-qgS">
+                                <rect key="frame" x="162" y="196" width="131" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="First"/>
+                                    <segment title="Second"/>
+                                </segments>
+                            </segmentedControl>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rBi-Yh-dXC">
+                                <rect key="frame" x="70" y="354" width="284" height="260"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uqd-ff-C5L">
+                                <rect key="frame" x="95" y="675" width="235" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <action selector="downlaodImage:" destination="LiE-fR-7AX" eventType="touchUpInside" id="473-Zf-JOO"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="mbL-KB-DAs"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -330,6 +366,9 @@
                             <constraint firstItem="i0c-Y3-gm4" firstAttribute="leading" secondItem="mbL-KB-DAs" secondAttribute="leading" constant="20" id="cRN-fz-ixd"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="rBi-Yh-dXC" id="AVO-eM-iw0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vAS-L2-dc2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
