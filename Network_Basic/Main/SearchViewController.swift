@@ -1,19 +1,21 @@
-
 import UIKit
 
+import RealmSwift
 import Alamofire
 import SwiftyJSON
 import JGProgressHUD
+
 
 class SearchViewController: UIViewController,  UITableViewDelegate, UITableViewDataSource {
    
     @IBOutlet weak var searchTableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
-    let hud = JGProgressHUD()
+    let localRealm = try! Realm()
     
-    // BoxOffice 배열
-    var list: [BoxOfficeModel] = []
+    var taskList: Results<UserMovie>?
+    
+    let hud = JGProgressHUD()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,11 +37,13 @@ class SearchViewController: UIViewController,  UITableViewDelegate, UITableViewD
         
         let beforeDate = dateFormatter.string(from: dateCalculate ?? Date())
         
+//        taskList = localRealm.objects(UserMovie.self)
         // 네트워크 통신: 서버 점검 등 대한 예외처리
         // 네트워크 느린 환경 테스트
         // 실기기 테스트 시 Condition 조절 가능!!
         // 시뮬도 가능 (추가 설치)
         requestBoxOffice(text: beforeDate)
+ 
     }
     
     
@@ -47,44 +51,49 @@ class SearchViewController: UIViewController,  UITableViewDelegate, UITableViewD
     func requestBoxOffice(text: String) {
         hud.show(in: view)
         
-        list.removeAll()
+        taskList = nil
         
         let url = "\(EndPoint.boxOfficeURL)key=\(APIKey.BOXOFFICE)&targetDt=\(text)"
-        
-        AF.request(url, method: .get).validate().responseData { response in
-            switch response.result {
-            case .success(let value):
-                let json = JSON(value)
-                print("JSON: \(json)")
-                
-                
-                for movie in json["boxOfficeResult"]["dailyBoxOfficeList"].arrayValue{
-                    
-                    let movieNm = movie["movieNm"].stringValue
-                    let openDt = movie["openDt"].stringValue
-                    let rank = movie["rank"].stringValue
-                    let rankON =  movie["rankOldAndNew"].stringValue
-                    
-                    
-                    let data = BoxOfficeModel(movieTitle: movieNm, releaseDate: openDt, movieRank: rank, movieRankON: rankON)
-                    
-                    self.list.append(data)
-                }
-                
-                self.searchTableView.reloadData()
-                self.hud.dismiss()
 
-                
-            case .failure(let error):
-                self.hud.dismiss()
-                print(error)
+        if localRealm.objects(UserMovie.self).filter("dateID == %@", "\(text)").isEmpty {
+            AF.request(url, method: .get).validate().responseData { response in
+                switch response.result {
+                case .success(let value):
+                    let json = JSON(value)
+    //                print("JSON: \(json)")
+                    
+                    let task = json["boxOfficeResult"]["dailyBoxOfficeList"].arrayValue.map {
+                        UserMovie(rank: $0["rank"].stringValue, rankON: $0["rankOldAndNew"].stringValue, movieTitle: $0["movieNm"].stringValue, openDate: $0["openDt"].stringValue, dateID: text)
+                    }
+                    
+                    try! self.localRealm.write {
+                        
+                        self.localRealm.add(task)
+                        self.taskList = self.localRealm.objects(UserMovie.self).filter("dateID == %@", "\(text)")
+                        print(task)
+                    }
+
+                    self.searchTableView.reloadData()
+                    self.hud.dismiss()
+
+                    
+                case .failure(let error):
+                    self.hud.dismiss()
+                    print(error)
+                }
             }
+        } else {
+            taskList = localRealm.objects(UserMovie.self).filter("dateID == %@", "\(text)")
+            
+            self.searchTableView.reloadData()
+            self.hud.dismiss()
         }
+        
 
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return list.count
+        return taskList?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -93,10 +102,10 @@ class SearchViewController: UIViewController,  UITableViewDelegate, UITableViewD
         }
         cell.separatorInset.left = 0
         
-        cell.titleLabel.text = "\(list[indexPath.row].movieTitle)"
-        cell.openDateLabel.text = "\(list[indexPath.row].releaseDate)"
-        cell.rankLabel.text = "\(list[indexPath.row].movieRank)"
-        cell.newoldRankLabel.text = "\(list[indexPath.row].movieRankON)"
+        cell.titleLabel.text = "\(taskList?[indexPath.row].movieTitle ?? "")"
+        cell.openDateLabel.text = "\(taskList?[indexPath.row].openDate ?? "")"
+        cell.rankLabel.text = "\(taskList?[indexPath.row].rank ?? "")"
+        cell.newoldRankLabel.text = "\(taskList?[indexPath.row].rankON ?? "")"
         
         cell.titleLabel.font = .boldSystemFont(ofSize: 20)
         cell.openDateLabel.font = .boldSystemFont(ofSize: 17)
