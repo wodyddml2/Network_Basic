@@ -11,15 +11,21 @@ class SearchViewController: UIViewController,  UITableViewDelegate, UITableViewD
     @IBOutlet weak var searchTableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
-    let localRealm = try! Realm()
+    private static let config = Realm.Configuration(schemaVersion: 1) { migration, oldSchemaVersion in
+        if oldSchemaVersion < 1 {
+            migration.renameProperty(onType: UserMovie.className(), from: "openDate", to: "openDt")
+        }
+    }
     
-    var taskList: Results<UserMovie>?
+    private let localRealm = try! Realm(configuration: SearchViewController.config)
     
-    let hud = JGProgressHUD()
+    private var taskList: Results<UserMovie>?
+    
+    private let hud = JGProgressHUD()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+//        Realm.Configuration.defaultConfiguration = config
         // 연결고리 작업 : 테이블 뷰가 해야 할 역할 > 뷰컨에 요청
         searchTableView.delegate = self
         searchTableView.dataSource = self
@@ -49,6 +55,9 @@ class SearchViewController: UIViewController,  UITableViewDelegate, UITableViewD
     
 
     func requestBoxOffice(text: String) {
+//        Realm.Configuration.defaultConfiguration = config
+        
+        
         hud.show(in: view)
         
         taskList = nil
@@ -63,7 +72,7 @@ class SearchViewController: UIViewController,  UITableViewDelegate, UITableViewD
     //                print("JSON: \(json)")
                     
                     let task = json["boxOfficeResult"]["dailyBoxOfficeList"].arrayValue.map {
-                        UserMovie(rank: $0["rank"].stringValue, rankON: $0["rankOldAndNew"].stringValue, movieTitle: $0["movieNm"].stringValue, openDate: $0["openDt"].stringValue, dateID: text)
+                        UserMovie(rank: $0["rank"].stringValue, rankON: $0["rankOldAndNew"].stringValue, movieTitle: $0["movieNm"].stringValue, openDt: $0["openDt"].stringValue, dateID: text)
                     }
                     
                     try! self.localRealm.write {
@@ -103,7 +112,7 @@ class SearchViewController: UIViewController,  UITableViewDelegate, UITableViewD
         cell.separatorInset.left = 0
         
         cell.titleLabel.text = "\(taskList?[indexPath.row].movieTitle ?? "")"
-        cell.openDateLabel.text = "\(taskList?[indexPath.row].openDate ?? "")"
+        cell.openDateLabel.text = "\(taskList?[indexPath.row].openDt ?? "")"
         cell.rankLabel.text = "\(taskList?[indexPath.row].rank ?? "")"
         cell.newoldRankLabel.text = "\(taskList?[indexPath.row].rankON ?? "")"
         
